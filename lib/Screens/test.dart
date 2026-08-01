@@ -17,7 +17,7 @@ class Test extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          Lottie.asset("assets/animation/Cute Mascot Jumping Character.json", height: 200,width: 200)
+          
         ],
       ),
     );
