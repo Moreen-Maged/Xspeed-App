@@ -4,6 +4,7 @@ import 'package:test1/Screens/home_screen.dart';
 import 'package:test1/Screens/login_screen.dart';
 import 'package:test1/Screens/profile_screen.dart';
 import 'package:test1/Screens/register_screen.dart';
+import 'package:test1/Screens/setting_screen.dart';
 import 'package:test1/Screens/splash_screen.dart';
 import 'package:test1/Screens/test.dart';
 
@@ -18,11 +19,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/Register",
+      initialRoute: "/drawer",
       routes: {
         "/": (context) => Login(),
         "/Register": (context) => RegisterScreen(),
-        
+        "/Setting": (context) => SettingScreen(),
+        "/drawer": (context) => draw(),
       },
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,

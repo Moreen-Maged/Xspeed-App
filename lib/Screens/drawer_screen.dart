@@ -46,7 +46,13 @@ class draw extends StatelessWidget {
             SizedBox(height: 240),
             elements("Notifications", icon: Icons.notifications_outlined),
             SizedBox(height: 23),
-            elements("Settings", icon: Icons.settings_outlined),
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, "/Setting");
+              },
+              child: elements("Settings", icon: Icons.settings_outlined),
+            ),
             SizedBox(height: 23),
             elements("Docs", icon: Icons.description_outlined),
             SizedBox(height: 23),
