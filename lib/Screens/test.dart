@@ -9,15 +9,7 @@ class Test extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Text(
-            "اهلا",
-            style: TextStyle(
-              fontFamily: 'Cairo',
-              fontSize: 50,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-          Text("data")
+          
         ],
       ),
     );

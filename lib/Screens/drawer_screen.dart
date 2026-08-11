@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test1/Screens/profile_screen.dart';
 
 class draw extends StatelessWidget {
   const draw({super.key});
@@ -24,7 +25,14 @@ class draw extends StatelessWidget {
             SizedBox(height: 30),
             Divider(height: 2, color: Colors.black),
             SizedBox(height: 30),
-            elements("Home", icon: Icons.home_outlined),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                );
+              },
+              child: elements("Profile", icon: Icons.person_outlined),
+            ),
             SizedBox(height: 23),
             elements("Products", icon: Icons.inventory_2_outlined),
             SizedBox(height: 23),

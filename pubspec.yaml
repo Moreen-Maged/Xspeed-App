@@ -8,6 +8,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  font_awesome_flutter: ^11.0.0
 # packages can be added here
   lottie: ^3.5.1
 dev_dependencies:
