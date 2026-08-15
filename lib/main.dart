@@ -19,12 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/drawer",
+      initialRoute: "/home",
       routes: {
         "/": (context) => Login(),
         "/Register": (context) => RegisterScreen(),
         "/Setting": (context) => SettingScreen(),
         "/drawer": (context) => draw(),
+        "/home":(context) => HomeScreen(),
       },
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,

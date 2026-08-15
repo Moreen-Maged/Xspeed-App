@@ -13,51 +13,53 @@ class draw extends StatelessWidget {
       ),
       drawer: Drawer(
         backgroundColor: Colors.white,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 170, top: 25),
-              child: Text(
-                "Xspeed",
-                style: TextStyle(fontSize: 30, color: Colors.black),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 170, top: 25),
+                child: Text(
+                  "Xspeed",
+                  style: TextStyle(fontSize: 30, color: Colors.black),
+                ),
               ),
-            ),
-            SizedBox(height: 30),
-            Divider(height: 2, color: Colors.black),
-            SizedBox(height: 30),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ProfileScreen()),
-                );
-              },
-              child: elements("Profile", icon: Icons.person_outlined),
-            ),
-            SizedBox(height: 23),
-            elements("Products", icon: Icons.inventory_2_outlined),
-            SizedBox(height: 23),
-            elements("Payment Page", icon: Icons.archive_outlined),
-            SizedBox(height: 23),
-            elements("Promo Codes", icon: Icons.sell),
-            SizedBox(height: 23),
-            elements("Past Orders", icon: Icons.restore),
-            SizedBox(height: 30),
-            Divider(height: 2, color: Colors.black),
-            SizedBox(height: 240),
-            elements("Notifications", icon: Icons.notifications_outlined),
-            SizedBox(height: 23),
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, "/Setting");
-              },
-              child: elements("Settings", icon: Icons.settings_outlined),
-            ),
-            SizedBox(height: 23),
-            elements("Docs", icon: Icons.description_outlined),
-            SizedBox(height: 23),
-            elements("Help", icon: Icons.help_outline),
-          ],
+              SizedBox(height: 30),
+              Divider(height: 2, color: Colors.black),
+              SizedBox(height: 30),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => ProfileScreen()),
+                  );
+                },
+                child: elements("Profile", icon: Icons.person_outlined),
+              ),
+              SizedBox(height: 23),
+              elements("Products", icon: Icons.inventory_2_outlined),
+              SizedBox(height: 23),
+              elements("Payment Page", icon: Icons.archive_outlined),
+              SizedBox(height: 23),
+              elements("Promo Codes", icon: Icons.sell),
+              SizedBox(height: 23),
+              elements("Past Orders", icon: Icons.restore),
+              SizedBox(height: 30),
+              Divider(height: 2, color: Colors.black),
+              SizedBox(height: 240),
+              elements("Notifications", icon: Icons.notifications_outlined),
+              SizedBox(height: 23),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, "/Setting");
+                },
+                child: elements("Settings", icon: Icons.settings_outlined),
+              ),
+              SizedBox(height: 23),
+              elements("Docs", icon: Icons.description_outlined),
+              SizedBox(height: 23),
+              elements("Help", icon: Icons.help_outline),
+            ],
+          ),
         ),
       ),
     );

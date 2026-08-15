@@ -115,7 +115,6 @@ class tiles extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: icon,
-
       title: txt,
       trailing: Icon(Icons.arrow_drop_down_outlined, color: Colors.grey),
     );
