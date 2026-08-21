@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:test1/Components/choice_chip.dart';
-import 'package:test1/Components/home_bestseller_image.dart';
+import 'package:test1/Home/components/best_seller_list.dart';
+import 'package:test1/Home/components/choice_chip.dart';
+import 'package:test1/Home/components/home_product_image.dart';
+import 'package:test1/Home/components/inspiration_section.dart';
+import 'package:test1/Home/components/new_arrivals_list.dart';
+import 'package:test1/Models/product_model.dart';
 import 'package:test1/Screens/profile_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -64,28 +69,9 @@ class HomeScreen extends StatelessWidget {
                       Icon(Icons.shopping_bag),
                     ],
                   ),
-                  //SizedBox(height: 10),
+
                   homeCategory(),
 
-                  /* Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 8),
-                        child: Text(
-                          "All",
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      cont(name: "Deals"),
-                      cont(name: "Clothes"),
-                      cont(name: "Shoes"),
-                    ],
-                  ),*/
                   SizedBox(height: 5),
                   Container(
                     decoration: BoxDecoration(
@@ -144,11 +130,111 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 2),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      homeBestsellerImage(),
-                      
+                  bestSellerListBuilder(),
+
+                  SizedBox(height: 32),
+                  Container(
+                    alignment: Alignment.center,
+                    width: size.width * 0.9,
+                    height: size.height * 0.2,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          const Color.fromARGB(255, 2, 2, 66),
+                          const Color.fromARGB(255, 2, 12, 146),
+                          const Color.fromARGB(255, 28, 8, 179),
+                          const Color.fromARGB(255, 23, 39, 215),
+                        ],
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Winter Sale",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 28,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "Stay cozy with up to 40% off ",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          "winter clothing and accessories",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 32),
+                  Container(
+                    color: Colors.black,
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsGeometry.only(top: 16, left: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Sports",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 22,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                "get in shape",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ), // spacing between text and image, matches your screenshot
+
+                        Image.asset(
+                          "assets/images/101109b86768316c6968be23b83158abb1d868bf.jpg",
+                          width: double.infinity,
+                          height: 300,
+                          fit: BoxFit.cover,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 16),
+                  NewArrivalsList(),
+                  SizedBox(height: 22),
+                  InspirationalSection(
+                    images: [
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrnKbPQfGZ3lOygI2WqUAwIf50BB5q0aUKU1gcqPZTWg&s=10",
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2uBdcH09FpK6gTF9V-TdqHQaGk1PkPhuyg69A0AVOQ&s=10",
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMp5Bc2GPm2epiJ5qWh5cd6rie-YeXZIpkBk4oGGlZsQ&s=10",
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_KiisdSWD6XXHorEvopdJDwqggLcNmlCL7ymI9Ev4Jg&s=10",
                     ],
                   ),
                 ],
@@ -159,16 +245,4 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget cont({required name}) {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 22, vertical: 8),
-    child: Text(name, style: TextStyle(color: Colors.black, fontSize: 15)),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(20),
-      border: BoxBorder.all(color: Colors.black),
-    ),
-  );
 }
