@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:test1/Home/components/best_seller_list.dart';
 import 'package:test1/Home/components/choice_chip.dart';
-import 'package:test1/Home/components/home_product_image.dart';
+import 'package:test1/Home/components/for_you_list_builder.dart';
 import 'package:test1/Home/components/inspiration_section.dart';
 import 'package:test1/Home/components/new_arrivals_list.dart';
-import 'package:test1/Models/product_model.dart';
-import 'package:test1/Screens/profile_screen.dart';
+import 'package:test1/Home/components/one_pic_section.dart';
+import 'package:test1/Home/components/outdoor_adventure_list_builder.dart';
+import 'package:test1/Home/components/see_all.dart';
+import 'package:test1/Home/components/jackets_list_and_grid.dart';
+import 'package:test1/Screens/about_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -47,8 +50,8 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsetsGeometry.only(
                 top: 10,
-                right: 25,
-                left: 25,
+                right: 16,
+                left: 16,
                 bottom: 30,
               ),
               child: Column(
@@ -64,9 +67,24 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Icon(Icons.search),
+                      IconButton(
+                        icon: Icon(Icons.help_outline),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AboutScreen(),
+                            ),
+                          );
+                        },
+                      ),
                       SizedBox(width: 5),
-                      Icon(Icons.shopping_bag),
+                      IconButton(
+                        icon: Icon(Icons.settings),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/Setting");
+                        },
+                      ),
                     ],
                   ),
 
@@ -109,26 +127,8 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 16),
+                  SeeAll(text: "Best Sellers"),
 
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          "Best Sellers",
-                          style: TextStyle(
-                            fontWeight: FontWeight(600),
-                            fontSize: 25,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        "See all",
-                        style: TextStyle(
-                          color: const Color.fromARGB(255, 104, 29, 148),
-                        ),
-                      ),
-                    ],
-                  ),
                   SizedBox(height: 2),
                   bestSellerListBuilder(),
 
@@ -182,48 +182,12 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 32),
-                  Container(
-                    color: Colors.black,
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsGeometry.only(top: 16, left: 16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Sports",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 22,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                "get in shape",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 17,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 16,
-                        ), // spacing between text and image, matches your screenshot
-
-                        Image.asset(
-                          "assets/images/101109b86768316c6968be23b83158abb1d868bf.jpg",
-                          width: double.infinity,
-                          height: 300,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    ),
+                  onePicSection(
+                    text1: "Sports",
+                    text2: "get in shape",
+                    imageurl:
+                        "assets/images/101109b86768316c6968be23b83158abb1d868bf.jpg",
+                    c: Colors.black,
                   ),
 
                   SizedBox(height: 16),
@@ -237,6 +201,22 @@ class HomeScreen extends StatelessWidget {
                       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_KiisdSWD6XXHorEvopdJDwqggLcNmlCL7ymI9Ev4Jg&s=10",
                     ],
                   ),
+                  SizedBox(height: 16),
+                  SeeAll(text: "Jackets"),
+                  JacketsListAndGrid(),
+                  onePicSection(
+                    text1: "Outdoors",
+                    text2: "Gear up for your next adventure",
+                    imageurl: "assets/images/image.png",
+                    c: Color(0xff1C4D1B),
+                  ),
+                  OutdoorAdventureListBuilder(),
+                  SizedBox(height: 32),
+                  SeeAll(text: "For you"),
+                  SizedBox(height: 10),
+                  ForYouListBuilder(),
+                  SizedBox(height: 10),
+                  Image.asset("assets/images/Spotlight.png"),
                 ],
               ),
             ),

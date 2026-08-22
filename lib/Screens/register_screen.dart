@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test1/Screens/home_screen.dart';
 import 'package:test1/Screens/login_screen.dart';
+import 'package:test1/Screens/xspeed_app_main.dart';
 
 class RegisterScreen extends StatefulWidget {
   RegisterScreen({super.key});
@@ -96,11 +97,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (formstate.currentState!.validate()) {
                       Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                        MaterialPageRoute(
+                          builder: (context) => XspeedAppMain(),
+                        ),
                         (route) => false,
                       );
                     }
                   },
+                  vertical: 15,
+                  horizontal: 160,
                 ),
                 /* GestureDetector(
                   onTap: () {
@@ -142,6 +147,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       context,
                     ).push(MaterialPageRoute(builder: (context) => Login()));
                   },
+                  vertical: 15,
+                  horizontal: 160,
                 ),
                 /*GestureDetector(
                   onTap: () {

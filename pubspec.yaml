@@ -17,10 +17,12 @@ dev_dependencies:
   flutter_lints: ^6.0.0
 flutter:
   uses-material-design: true
+
   assets:
-#      - assets/new-arrival-banner-template_1361-1246.avif
-       - assets/images/
-       - assets\animation\Cute Mascot Jumping Character.json
+    - assets/animation/0EKhwz4EDC.json
+    - "assets/animation/Dancing Heart.json"
+    - assets/images/
+    - "assets/animation/Cute Mascot Jumping Character.json"
   fonts:
     - family: Cairo
       fonts:

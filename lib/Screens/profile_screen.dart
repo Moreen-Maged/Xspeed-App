@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:test1/Screens/drawer_screen.dart';
+import 'package:test1/Screens/home_screen.dart';
+import 'package:test1/Screens/setting_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -9,52 +11,76 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 205, 204, 204),
+      backgroundColor: const Color.fromARGB(255, 227, 226, 226),
       body: Padding(
-        padding: EdgeInsetsGeometry.symmetric(horizontal: 30, vertical: 60),
+        padding: EdgeInsetsGeometry.only(
+          left: 20,
+          right: 20,
+          top: 50,
+          bottom: 20,
+        ),
         child: Container(
-          width: size.width * 0.85,
-          height: size.height * 0.85,
+          width: size.width * 0.9,
+          height: size.height * 0.9,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(26),
             color: Colors.white,
           ),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            
+
                   height: size.height * 0.38,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(26),
-                    color: const Color.fromARGB(255, 43, 157, 250),
+                    //color: const Color.fromARGB(255, 0, 0, 0),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        const Color.fromARGB(255, 119, 120, 120),
+                        const Color.fromARGB(255, 57, 57, 57),
+                        const Color.fromARGB(255, 47, 47, 47),
+                        Colors.black,
+                      ],
+                    ),
                   ),
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          GestureDetector(
+                          /*GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => draw(),
+                                  builder: (context) => HomeScreen(),
                                 ),
                               );
                             },
                             child: Icon(Icons.arrow_back, color: Colors.white),
-                          ),
+                          ),*/
                           Text(
                             "Profile",
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 22,
                             ),
                           ),
-                          Icon(Icons.settings, color: Colors.white),
+                          IconButton(
+                            icon: Icon(Icons.settings, color: Colors.white),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SettingScreen(),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       SizedBox(height: 14),
@@ -83,8 +109,16 @@ class ProfileScreen extends StatelessWidget {
                           fontSize: 12,
                         ),
                       ),
-                      SizedBox(height: 50),
-                      Row(
+                      SizedBox(height: 20),
+                      Text(
+                        "Person's Street,Region/City,\nCountry",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16,
+                        ),
+                      ),
+                      /*Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
@@ -125,7 +159,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
@@ -140,19 +174,17 @@ class ProfileScreen extends StatelessWidget {
                   info: "01234567899",
                 ),
                 text(
-                  icon: FaIcon(FontAwesomeIcons.xTwitter, color: Colors.grey),
-                  icontext: "Twitter",
-                  info: "@person123",
+                  icon: FaIcon(FontAwesomeIcons.creditCard, color: Colors.grey),
+                  icontext: "Payment Method",
+                  info: "Master Card",
                 ),
                 text(
-                  icon: FaIcon(FontAwesomeIcons.behance, color: Colors.grey),
-                  icontext: "Behance",
-                  info: "www.behance.net/person123",
-                ),
-                text(
-                  icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.grey),
-                  icontext: "Facebook",
-                  info: "www.facebook.com/person123",
+                  icon: FaIcon(
+                    FontAwesomeIcons.boxesPacking,
+                    color: Colors.grey,
+                  ),
+                  icontext: "Past Orders",
+                  info: "5 Orders",
                 ),
               ],
             ),

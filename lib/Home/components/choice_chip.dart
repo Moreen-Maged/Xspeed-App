@@ -29,19 +29,29 @@ class homeCategory extends StatelessWidget {
   }
 }
 
-class choice_Chip extends StatelessWidget {
+class choice_Chip extends StatefulWidget {
   const choice_Chip({super.key, required this.txt});
   final String txt;
 
   @override
+  State<choice_Chip> createState() => _choice_ChipState();
+}
+
+class _choice_ChipState extends State<choice_Chip> {
+  bool _isSelected = false;
+  @override
   Widget build(BuildContext context) {
     return ChoiceChip(
       selected: false,
-      onSelected: (value) {},
+      onSelected: (value) {
+        setState(() {
+          _isSelected = value;
+        });
+      },
       showCheckmark: false,
       selectedColor: Colors.black,
       backgroundColor: Colors.white,
-      label: Text(txt),
+      label: Text(widget.txt),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       labelStyle: TextStyle(color: Colors.black),
       shape: RoundedRectangleBorder(

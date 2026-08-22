@@ -11,7 +11,7 @@ class SettingScreen extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            color: const Color.fromARGB(255, 246, 179, 202),
+            color: Colors.black,
             child: SafeArea(
               bottom: false,
               child: Padding(
@@ -26,7 +26,7 @@ class SettingScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Icon(Icons.arrow_back),
+                      icon: Icon(Icons.arrow_back, color: Colors.white),
                     ),
                     SizedBox(height: 16),
                     Text(
@@ -34,6 +34,7 @@ class SettingScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ],
@@ -113,10 +114,14 @@ class tiles extends StatelessWidget {
   final Text txt;
   @override
   Widget build(BuildContext context) {
-    return ListTile(
+    return ExpansionTile(
+    
       leading: icon,
+      iconColor: Colors.black,
       title: txt,
-      trailing: Icon(Icons.arrow_drop_down_outlined, color: Colors.grey),
+      shape: Border(),
+      collapsedShape: Border(),
+      //trailing: Icon(Icons.arrow_drop_down_outlined, color: Colors.grey),
     );
   }
 }
