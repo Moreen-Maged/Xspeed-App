@@ -8,7 +8,8 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.white,
+    return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.only(top: 10, right: 16, left: 16, bottom: 30),
@@ -86,6 +87,7 @@ class CartScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),);
+      ),
+    );
   }
 }

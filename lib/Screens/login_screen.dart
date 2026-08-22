@@ -360,7 +360,8 @@ class button extends StatelessWidget {
         foregroundColor: textcolor,
         side: BorderSide(color: borderc),
       ),
-      child: FittedBox(fit: BoxFit.scaleDown, child: Text(txt)),
+      //child: Text(txt),
+       child: FittedBox(fit: BoxFit.scaleDown, child: Text(txt)),
     );
   }
 }
