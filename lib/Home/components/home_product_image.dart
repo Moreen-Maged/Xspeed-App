@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test1/Models/product_model.dart';
-import 'package:test1/Screens/product_details_screen.dart';
+import 'package:test1/ProductDetails/product_details_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:test1/Providers/favourite_provider.dart';
 
 class homeBestsellerImage extends StatefulWidget {
   final ProductModel product;
@@ -11,9 +13,11 @@ class homeBestsellerImage extends StatefulWidget {
 }
 
 class _homeBestsellerImageState extends State<homeBestsellerImage> {
-  bool isFavorite = false;
+ // bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
+    final isFavorite = context.watch<FavoritesProvider>().isFavorite(widget.product.title);
+    //it asks the provider f it is a favourite item
     final size = MediaQuery.of(context).size;
     final hasDiscount = widget.product.beforediscountprice != null;
     final discountPercent = hasDiscount
@@ -57,9 +61,7 @@ class _homeBestsellerImageState extends State<homeBestsellerImage> {
                         color: isFavorite ? Colors.red : Colors.black,
                       ),
                       onPressed: () {
-                        setState(() {
-                          isFavorite = !isFavorite;
-                        });
+                        context.read<FavoritesProvider>().toggleFavorite(widget.product);
                       },
                     ),
                   ),

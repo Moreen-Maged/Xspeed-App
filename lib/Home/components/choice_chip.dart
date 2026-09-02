@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test1/Screens/profile_screen.dart';
 
 class homeCategory extends StatelessWidget {
   homeCategory({super.key});
@@ -42,7 +41,7 @@ class _choice_ChipState extends State<choice_Chip> {
   @override
   Widget build(BuildContext context) {
     return ChoiceChip(
-      selected: false,
+      selected: _isSelected ,
       onSelected: (value) {
         setState(() {
           _isSelected = value;
@@ -53,7 +52,7 @@ class _choice_ChipState extends State<choice_Chip> {
       backgroundColor: Colors.white,
       label: Text(widget.txt),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      labelStyle: TextStyle(color: Colors.black),
+      labelStyle: TextStyle(color: _isSelected ? Colors.white : Colors.black),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusGeometry.circular(20),
       ),

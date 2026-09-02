@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:test1/RegisterComponents/register_screen.dart';
 
-class splash extends StatelessWidget {
+class splash extends StatefulWidget {
   const splash({super.key});
 
+  @override
+  State<splash> createState() => _splashState();
+  
+}
+
+class _splashState extends State<splash> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed( Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => RegisterScreen()),
+      );
+    });
+  } 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

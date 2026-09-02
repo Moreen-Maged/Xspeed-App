@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:test1/Screens/cart_screen.dart';
-import 'package:test1/Screens/favourite_screen.dart';
-import 'package:test1/Screens/home_screen.dart';
-import 'package:test1/Screens/profile_screen.dart';
-import 'package:test1/Screens/search_screen.dart';
-import 'package:test1/Screens/setting_screen.dart';
+import 'package:test1/cart/cart_screen.dart';
+import 'package:test1/Favourite/favourite_screen.dart';
+import 'package:test1/Home/components/home_screen.dart';
+import 'package:test1/Profile/profile_screen.dart';
+import 'package:test1/Search/search_screen.dart';
 
 class XspeedAppMain extends StatefulWidget {
   const XspeedAppMain({super.key});
 
   @override
-  State<XspeedAppMain> createState() => _XspeedAppMainState();
+  State<XspeedAppMain> createState() => XspeedAppMainState();
 }
 
-class _XspeedAppMainState extends State<XspeedAppMain> {
+class XspeedAppMainState extends State<XspeedAppMain> {
   int _currentIndex = 0;
+
+  void changeTab(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   // Your actual imported screens
   final List<Widget> _pages = [

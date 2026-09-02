@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/Screens/profile_screen.dart';
+import 'package:test1/Profile/profile_screen.dart';
 
 class draw extends StatelessWidget {
   const draw({super.key});

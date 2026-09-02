@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test1/Screens/profile_screen.dart';
+import 'package:test1/Settings/divider.dart';
+import 'package:test1/Settings/settings_top_container.dart';
+import 'package:test1/Settings/tiles.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -9,39 +11,7 @@ class SettingScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            width: double.infinity,
-            color: Colors.black,
-            child: SafeArea(
-              bottom: false,
-              child: Padding(
-                padding: EdgeInsetsGeometry.symmetric(
-                  vertical: 20,
-                  horizontal: 16,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(Icons.arrow_back, color: Colors.white),
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      "Settings",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          SettingsTopContainer(),
           SizedBox(height: 16),
           Expanded(
             child: SingleChildScrollView(
@@ -99,29 +69,6 @@ class SettingScreen extends StatelessWidget {
   }
 }
 
-class div extends StatelessWidget {
-  const div({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Divider(height: 2, thickness: 1, color: Colors.grey);
-  }
-}
 
-class tiles extends StatelessWidget {
-  const tiles({super.key, required this.icon, required this.txt});
-  final Icon icon;
-  final Text txt;
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTile(
-    
-      leading: icon,
-      iconColor: Colors.black,
-      title: txt,
-      shape: Border(),
-      collapsedShape: Border(),
-      //trailing: Icon(Icons.arrow_drop_down_outlined, color: Colors.grey),
-    );
-  }
-}
+
